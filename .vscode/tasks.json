@@ -1,0 +1,16 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Extension kompilieren (Root)",
+            "type": "npm",
+            "script": "compile",
+            "path": "live-code-sharing-extension/",
+            "problemMatcher": "$tsc",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

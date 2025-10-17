@@ -1,0 +1,41 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Extension starten (Root)",
+            "type": "extensionHost",
+            "request": "launch",
+            "args": [
+                "--extensionDevelopmentPath=${workspaceFolder}/live-code-sharing-extension"
+            ],
+            "outFiles": [
+                "${workspaceFolder}/live-code-sharing-extension/out/**/*.js"
+            ],
+            "preLaunchTask": "Extension kompilieren (Root)",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            "name": "Server starten (Root)",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run-script",
+                "start"
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/mcp-server"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Server & Extension starten",
+            "configurations": [
+                "Server starten (Root)",
+                "Extension starten (Root)"
+            ],
+            "stopAll": true
+        }
+    ]
+}
