@@ -24,22 +24,26 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run esbuild-base -- --minify",
+    "compile": "npm run esbuild-base -- --sourcemap",
+    "watch": "npm run esbuild-base -- --sourcemap --watch",
     "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src --ext ts"
+    "lint": "eslint src --ext ts",
+    "esbuild-base": "esbuild ./src/extension.ts --bundle --outfile=out/extension.js --external:vscode --format=cjs --platform=node"
   },
   "dependencies": {
     "ws": "^8.17.0"
   },
   "devDependencies": {
-    "@types/ws": "^8.5.10",
-    "@types/vscode": "^1.80.0",
     "@types/node": "20.x",
-    "typescript": "^5.4.5",
-    "eslint": "^8.57.0",
+    "@types/vscode": "^1.80.0",
+    "@types/ws": "^8.5.10",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
     "@typescript-eslint/parser": "^7.10.0",
-    "@typescript-eslint/eslint-plugin": "^7.10.0"
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5",
+    "@vscode/vsce": "^2.29.0",
+    "@vscode/test-electron": "^2.4.0",
+    "esbuild": "^0.21.4"
   }
 }
