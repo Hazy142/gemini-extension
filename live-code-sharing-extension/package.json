@@ -1,0 +1,45 @@
+{
+  "name": "live-code-sharing-extension",
+  "displayName": "Live Code Sharing Extension",
+  "description": "Sendet Code-Änderungen in Echtzeit an den MCP-Server.",
+  "version": "0.0.1",
+  "publisher": "vscode-example-publisher",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "liveCodeSharing.enterGeminiSuggestion",
+        "title": "Live Code Sharing: Gemini Vorschlag manuell eingeben",
+        "category": "Live Code Sharing"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "dependencies": {
+    "ws": "^8.17.0"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.5.10",
+    "@types/vscode": "^1.80.0",
+    "@types/node": "20.x",
+    "typescript": "^5.4.5",
+    "eslint": "^8.57.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "@typescript-eslint/eslint-plugin": "^7.10.0"
+  }
+}
